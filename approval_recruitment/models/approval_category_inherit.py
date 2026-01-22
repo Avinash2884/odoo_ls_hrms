@@ -80,18 +80,23 @@ class ApprovalCategoryInherit(models.Model):
     # CREATE
     # -----------------------------
     @api.model
-    def create(self, vals):
+    def create(self, vals_list):
         print("📝 hai from approval create")
 
-        if vals.get('hr_department_id'):
-            department = self.env['hr.department'].browse(vals['hr_department_id'])
+        # Ensure vals_list is always a list
+        if isinstance(vals_list, dict):
+            vals_list = [vals_list]
 
-            dept_vals, approvers = self._prepare_department_data(department)
+        for vals in vals_list:
+            if vals.get('hr_department_id'):
+                department = self.env['hr.department'].browse(vals['hr_department_id'])
 
-            vals.update(dept_vals)
-            vals['approver_ids'] = [(5, 0, 0)] + approvers
+                dept_vals, approvers = self._prepare_department_data(department)
 
-        return super().create(vals)
+                vals.update(dept_vals)
+                vals['approver_ids'] = [(5, 0, 0)] + approvers
+
+        return super().create(vals_list)
 
     # -----------------------------
     # WRITE
