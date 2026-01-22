@@ -15,13 +15,13 @@ class ApprovalRequestInherit(models.Model):
     has_end_date = fields.Selection(related="category_id.has_end_date")
 
     no_of_position = fields.Integer(string="No of Position")
-    approval_job_position = fields.Char(string="Job Position")
+    approval_job_position = fields.Char(string="Approval Job Position")
     approval_experience_minimum = fields.Integer(string="Experience Min")
     approval_experience_maximum = fields.Integer(string="Experience Max")
-    approval_overall_budget_for_all_posting = fields.Integer(string="Budget for All Posting")
-    approval_budget_for_each_employee_position = fields.Integer(string="Budget for Per Employee")
-    approval_start_date = fields.Date(string="Start Date")
-    approval_end_date = fields.Date(string="End Date")
+    approval_overall_budget_for_all_posting = fields.Integer(string="Approval Budget for All Posting")
+    approval_budget_for_each_employee_position = fields.Integer(string="Approval Budget for Per Employee")
+    approval_start_date = fields.Date(string="Approval Start Date")
+    approval_end_date = fields.Date(string="Approval End Date")
 
     # hr_skill_type_id = fields.Many2one( comodel_name='hr.skill.type',string="HR Skill Types")
     # hr_skill_ids = fields.One2many( 'hr.skill','approval_request_id',string="HR Skills")

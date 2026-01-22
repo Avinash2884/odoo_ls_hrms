@@ -11,7 +11,7 @@ class RecruitmentApprovalStage(models.Model):
     job_position_id = fields.Many2one('hr.job', string="Recruitment Job Position", tracking=True,required=True)
     user_id = fields.Many2one(
         'res.users',
-        string="Responsible User",
+        string="User",
         related='job_position_id.user_id',
         store=True,
         readonly=True
