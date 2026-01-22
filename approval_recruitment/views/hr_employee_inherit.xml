@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_employee_inherit_approval" model="ir.ui.view">
+        <field name="name">hr.employee.inherit.approval</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <!-- Insert custom fields after parent_id -->
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="hr_id" widget="many2one_avatar_user"/>
+                <field name="joining_date_recruit"/>
+            </xpath>
+            <xpath expr="//field[@name='structure_type_id']" position="after">
+                <field name="probation_status" />
+                <field name="probation_reason"/>
+            </xpath>
+            <xpath expr="//field[@name='employee_type']" position="before">
+                <field name="probation_date_start" placeholder="Start of Probation" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

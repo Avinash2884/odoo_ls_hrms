@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_applicant_inherit_evaluation" model="ir.ui.view">
+        <field name="name">hr.applicant.inherit.evaluation</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Evaluation">
+                    <group>
+                        <field name="mark" readonly="1"/>
+                        <field name="is_suitable" invisible="1"/>
+                        <field name="application_status" invisible="1"/>
+                    </group>
+                    <field name="evaluation_ids">
+                        <list editable="bottom">
+                            <field name="interviewer_id"/>
+                            <field name="education"/>
+                            <field name="professional"/>
+                            <field name="personality"/>
+                            <field name="communication"/>
+                            <field name="knowledge"/>
+                            <field name="experience"/>
+                            <field name="total_score" readonly="1"/>
+                        </list>
+                        <form>
+                            <group>
+                                <field name="interviewer_id"/>
+                                <field name="education"/>
+                                <field name="professional"/>
+                                <field name="personality"/>
+                                <field name="communication"/>
+                                <field name="knowledge"/>
+                                <field name="experience"/>
+                                <field name="total_score" readonly="1"/>
+                                <field name="notes"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+<!--            <xpath expr="//sheet" position="before">-->
+<!--                <widget name="web_ribbon"-->
+<!--                    title="Hold"-->
+<!--                    bg_color="text-bg-warning"-->
+<!--                    invisible="application_status != 'hold'"/>-->
+<!--            </xpath>-->
+            <xpath expr="//button[@name='archive_applicant']" position="attributes">
+                <attribute name="string">Reject</attribute>
+            </xpath>
+            <xpath expr="//button[@name='archive_applicant']" position="before">
+                <button
+                    name="action_select_applicant"
+                    type="object"
+                    string="Select"
+                    class="btn btn-primary"
+                />
+                <button
+                    name="action_approval_applicant"
+                    type="object"
+                    string="Job Approval"
+                    class="btn btn-primary"
+                />
+                <button
+                    name="action_document_validation_applicant"
+                    type="object"
+                    string="Document Validation"
+                    class="btn btn-primary"
+                />
+            </xpath>
+<!--            <xpath expr="//button[@name='archive_applicant']" position="after">-->
+<!--                <button-->
+<!--                    name="action_hold_applicant"-->
+<!--                    type="object"-->
+<!--                    string="Hold"-->
+<!--                    class="btn btn-primary"-->
+<!--                />-->
+<!--            </xpath>-->
+        </field>
+    </record>
+
+</odoo>
