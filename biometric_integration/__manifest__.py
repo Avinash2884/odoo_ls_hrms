@@ -18,4 +18,7 @@
     'installable': True,
     'application': True,
     'license': 'LGPL-3',
+    'external_dependencies': {
+        'python': ['pyzk'],
+    }
 }
