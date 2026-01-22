@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data falseupdate="1">
+    <data noupdate="1">
         <record id="approval_category_data_man_power_requisition_inherit" model="approval.category">
             <field name="name">Man Power Requisition</field>
             <field name="image" type="base64" file="approvals/static/src/img/Suitcase.png"/>
