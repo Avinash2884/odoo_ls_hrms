@@ -10,3 +10,4 @@ from . import hr_employee_inherit
 from . import hr_employee_public_inherit
 from . import recruitment_approval_stage
 from . import hr_department_inherit
+from . import hr_recruitment_stage

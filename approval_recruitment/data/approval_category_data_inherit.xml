@@ -23,7 +23,7 @@
             <field name="has_budget_for_each_employee_position">required</field>
             <field name="has_start_date">required</field>
             <field name="has_end_date">required</field>
-            <field name="approval_minimum">1</field>
+            <field name="approval_minimum">2</field>
             <field name="manager_approval">approver</field>
         </record>
     </data>

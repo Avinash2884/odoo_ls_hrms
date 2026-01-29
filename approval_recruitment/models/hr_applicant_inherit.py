@@ -1,3 +1,5 @@
+from odoo.exceptions import ValidationError
+
 from odoo import models, fields, api , _
 
 class HrApplicantInherit(models.Model):
@@ -10,6 +12,27 @@ class HrApplicantInherit(models.Model):
     application_status = fields.Selection(
         selection_add=[('hold', 'Hold')]
     )
+
+    @api.onchange('job_id')
+    def _onchange_job_id_stage_domain(self):
+        print("ONCHANGE TRIGGERED")
+        print("Selected Job ID:", self.job_id)
+
+        if self.job_id:
+            print("JOB ID VALUE:", self.job_id.id)
+            domain = [('job_ids', 'in', self.job_id.id)]
+            print("STAGE DOMAIN:", domain)
+
+            return {
+                'domain': {
+                    'stage_id': domain
+                }
+            }
+        else:
+            print("NO JOB SELECTED")
+            return {
+                'domain': {'stage_id': [('id', '=', False)]}
+            }
 
     # @api.depends('refuse_reason_id', 'date_closed', 'stage_id', 'active')
     # def _compute_application_status(self):
@@ -127,4 +150,3 @@ class HrApplicantInherit(models.Model):
 
     def action_hold_applicant(self):
         pass
-

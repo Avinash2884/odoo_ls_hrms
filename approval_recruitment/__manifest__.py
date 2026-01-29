@@ -18,6 +18,7 @@
         "views/hr_employee_inherit.xml",
         "views/recruitment_approval_stage.xml",
         "views/hr_department_inherit_views.xml",
+        "views/hr_recruitment_stages_views.xml",
     ],
     'installable': True,
     'application': True,
